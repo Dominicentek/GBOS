@@ -752,6 +752,10 @@ int main() {
         if (pressed & J_LEFT && cursorPosX != 0) cursorPosX--;
         if (pressed & J_DOWN) cursorPosY++;
         if (pressed & J_RIGHT) cursorPosX++;
+        if (cursorPosY < cursorLimitUp) cursorPosY = cursorLimitUp;
+        if (cursorPosX < cursorLimitLeft) cursorPosX = cursorLimitLeft;
+        if (cursorPosY >= cursorLimitDown) cursorPosY = cursorLimitDown;
+        if (cursorPosX >= cursorLimitRight) cursorPosX = cursorLimitRight;
         move_sprite(0, cursorPosX + 8, cursorPosY + 16);
     }
     return 0;
